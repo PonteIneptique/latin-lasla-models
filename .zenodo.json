@@ -1,0 +1,13 @@
+{
+    "description": "Mod\u00e8le Pie entra\u00een\u00e9 sur les donn\u00e9es du LASLA", 
+    "license": "other-open", 
+    "title": "Deucalion Latin Lemmatizer", 
+    "upload_type": "software", 
+    "creators": [
+        {
+            "affiliation": "\u00c9cole Nationale des Chartes", 
+            "name": "Thibault Cl\u00e9rice"
+        }
+    ], 
+    "access_right": "open"
+}
