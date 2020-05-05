@@ -8,7 +8,83 @@ Repository for LASLA Latin models: the models were fine-tuned by Thibault Cléri
 
 *Note:* the model is currently being fine-tuned in the context of my PhD. I'll fill this part when it will be done.
 
-## Credits
+- Enclitics are kept in a single token
+	- Enclitic lemma are separated as such `token[Caesarque]` == `lemma[Caesar界que]` 
+	- Morphology is the morphology of the first token
+- Only numbers 1, 2 and 3 are known. Roman numbers are unknown.
+- All punctuation signs are unknown, including the one used in abbr. `token[C]` == `lemma[Gaius]`
+- Everything is lowercased at the moment. Including lemma.
+
+## Scores
+
+For more details about the errors, see the [Report](Information/Confusion.md).
+
+### lemma
+
+|                  | accuracy | precision | recall | support |
+|------------------|----------|-----------|--------|---------|
+| all              | 0.9752   | 0.8452    | 0.8405 | 169822  |
+| unknown-tokens   | 0.8771   | 0.744     | 0.7395 | 6535    |
+| ambiguous-tokens | 0.9295   | 0.706     | 0.7087 | 41834   |
+| unknown-targets  | 0.6597   | 0.4933    | 0.4914 | 1099    |
+
+### pos
+
+|                  | accuracy | precision | recall | support |
+|------------------|----------|-----------|--------|---------|
+| all              | 0.9667   | 0.8775    | 0.8682 | 169822  |
+| unknown-tokens   | 0.9226   | 0.6606    | 0.583  | 6535    |
+| ambiguous-tokens | 0.915    | 0.7935    | 0.7774 | 55267   |
+
+### Gend
+
+|                  | accuracy | precision | recall | support |
+|------------------|----------|-----------|--------|---------|
+| all              | 0.968    | 0.924     | 0.9266 | 169822  |
+| unknown-tokens   | 0.9201   | 0.8727    | 0.8506 | 6535    |
+| ambiguous-tokens | 0.8772   | 0.8748    | 0.8818 | 35778   |
+
+### Numb
+
+|                  | accuracy | precision | recall | support |
+|------------------|----------|-----------|--------|---------|
+| all              | 0.9751   | 0.9739    | 0.9732 | 169822  |
+| unknown-tokens   | 0.9467   | 0.9186    | 0.9254 | 6535    |
+| ambiguous-tokens | 0.9171   | 0.9135    | 0.9108 | 41278   |
+
+### Case
+
+|                  | accuracy | precision | recall | support |
+|------------------|----------|-----------|--------|---------|
+| all              | 0.9275   | 0.8887    | 0.8318 | 169822  |
+| unknown-tokens   | 0.8799   | 0.6519    | 0.6268 | 6535    |
+| ambiguous-tokens | 0.8381   | 0.8317    | 0.7812 | 64764   |
+
+### Deg
+
+|                  | accuracy | precision | recall | support |
+|------------------|----------|-----------|--------|---------|
+| all              | 0.9815   | 0.9728    | 0.9728 | 169822  |
+| unknown-tokens   | 0.9388   | 0.9386    | 0.9176 | 6535    |
+| ambiguous-tokens | 0.916    | 0.913     | 0.9259 | 28464   |
+
+### Mood_Tense_Voice
+
+|                  | accuracy | precision | recall | support |
+|------------------|----------|-----------|--------|---------|
+| all              | 0.9873   | 0.8608    | 0.8141 | 169822  |
+| unknown-tokens   | 0.9301   | 0.762     | 0.744  | 6535    |
+| ambiguous-tokens | 0.9366   | 0.7802    | 0.7675 | 19961   |
+
+### Person
+
+|                  | accuracy | precision | recall | support |
+|------------------|----------|-----------|--------|---------|
+| all              | 0.9974   | 0.9867    | 0.9821 | 169822  |
+| unknown-tokens   | 0.9827   | 0.9697    | 0.9585 | 6535    |
+| ambiguous-tokens | 0.9812   | 0.9356    | 0.9262 | 12679   |
+
+### Credits
 
 *   D. Longrée, C. Philippart de Foy & G. Purnelle. « Structures phrastiques et analyse automatique des données morphosyntaxiques : le projet LatSynt », in S. Bolasco, I. Chiari & L. Giuliano (eds), Statistical Analysis of Textual Data, Proceedings of 10th International Conference Journées d'Analyse statistique des Données Textuelles, 9-11 June 2010, Sapienza University of Rome, Rome, LED, pp. 433-442.
 *   D. Longrée & C. Poudat, « New Ways of Lemmatizing and Tagging Classical and post-Classical Latin: the LATLEM project of the LASLA », in P. Anreiter & M. Kienpointner (éd.), Proceedings of the 15th International Colloquium on Latin Linguistics, (Innsbrucker Beiträge zur Sprachwissenschaft), Innsbruck, 2010, pp. 683-694.
