@@ -17,7 +17,7 @@ Repository for LASLA Latin models: the models were fine-tuned by Thibault Cléri
 
 ## Scores
 
-For more details about the errors, see the [Report](Information/Confusion.md).
+For more details about the errors, see the [Report](information/Confusion.md).
 
 ### lemma
 
