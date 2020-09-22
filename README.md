@@ -2,87 +2,169 @@
 
 [![DOI](https://zenodo.org/badge/244858653.svg)](https://zenodo.org/badge/latestdoi/244858653)
 
-Repository for LASLA Latin models: the models were fine-tuned by Thibault Clérice, data are based on LASLA data but some adaptation might be found.
+Repository for LASLA Latin models: the models were fine-tuned by Thibault Clérice, data are based on LASLA data but some adaptation might be found. 
 
 ## Information about the model
 
 *Note:* the model is currently being fine-tuned in the context of my PhD. I'll fill this part when it will be done.
+
+The training set is roughly **1.5M tokens**, dev test roughly 10k and test 169822. This is not counting punctuation, as LASLA data are lacking punctuation.
 
 - Enclitics are kept in a single token
 	- Enclitic lemma are separated as such `token[Caesarque]` == `lemma[Caesar界que]` 
 	- Morphology is the morphology of the first token
 - Only numbers 1, 2 and 3 are known. Roman numbers are unknown.
 - All punctuation signs are unknown, including the one used in abbr. `token[C]` == `lemma[Gaius]`
-- Everything is lowercased at the moment. Including lemma.
+- Lemma and tokens now accept lower and uppercasing. Noise was introduced in the dataset for better results.
 
 ## Scores
 
-For more details about the errors, see the [Report](information/Confusion.md).
+### Table of Content
+
+- [lemma](#lemma)
+- [pos](#pos)
+- [Gend](#Gend)
+- [Numb](#Numb)
+- [Case](#Case)
+- [Deg](#Deg)
+- [Mood_Tense_Voice](#Mood_Tense_Voice)
+- [Person](#Person)
+- [Entity](#Entity)
+- [Dis](#Dis)
+
 
 ### lemma
 
 |                  | accuracy | precision | recall | support |
 |------------------|----------|-----------|--------|---------|
-| all              | 0.9752   | 0.8452    | 0.8405 | 169822  |
-| unknown-tokens   | 0.8771   | 0.744     | 0.7395 | 6535    |
-| ambiguous-tokens | 0.9295   | 0.706     | 0.7087 | 41834   |
-| unknown-targets  | 0.6597   | 0.4933    | 0.4914 | 1099    |
+| all              | 0.9741   | 0.8372    | 0.8327 | 169822  |
+| known-tokens     | 0.9786   | 0.9077    | 0.907  | 161674  |
+| unknown-tokens   | 0.8845   | 0.7462    | 0.7422 | 8148    |
+| ambiguous-tokens | 0.9292   | 0.7067    | 0.7121 | 41561   |
+| unknown-targets  | 0.6004   | 0.4306    | 0.4297 | 1131    |
+
+
+- *[More details](details/lemma.md)*
+- *[Back to TOC](#table-of-content)*
 
 ### pos
 
 |                  | accuracy | precision | recall | support |
 |------------------|----------|-----------|--------|---------|
-| all              | 0.9667   | 0.8775    | 0.8682 | 169822  |
-| unknown-tokens   | 0.9226   | 0.6606    | 0.583  | 6535    |
-| ambiguous-tokens | 0.915    | 0.7935    | 0.7774 | 55267   |
+| all              | 0.9649   | 0.8747    | 0.8626 | 169822  |
+| known-tokens     | 0.967    | 0.8798    | 0.8672 | 161674  |
+| unknown-tokens   | 0.9245   | 0.6683    | 0.6129 | 8148    |
+| ambiguous-tokens | 0.9087   | 0.8215    | 0.7913 | 52129   |
+
+
+- *[More details](details/pos.md)*
+- *[Back to TOC](#table-of-content)*
 
 ### Gend
 
 |                  | accuracy | precision | recall | support |
 |------------------|----------|-----------|--------|---------|
-| all              | 0.968    | 0.924     | 0.9266 | 169822  |
-| unknown-tokens   | 0.9201   | 0.8727    | 0.8506 | 6535    |
-| ambiguous-tokens | 0.8772   | 0.8748    | 0.8818 | 35778   |
+| all              | 0.9628   | 0.9088    | 0.9161 | 169822  |
+| known-tokens     | 0.9652   | 0.9124    | 0.9211 | 161674  |
+| unknown-tokens   | 0.9149   | 0.8547    | 0.8433 | 8148    |
+| ambiguous-tokens | 0.86     | 0.8536    | 0.8694 | 34690   |
+
+
+- *[More details](details/Gend.md)*
+- *[Back to TOC](#table-of-content)*
 
 ### Numb
 
 |                  | accuracy | precision | recall | support |
 |------------------|----------|-----------|--------|---------|
-| all              | 0.9751   | 0.9739    | 0.9732 | 169822  |
-| unknown-tokens   | 0.9467   | 0.9186    | 0.9254 | 6535    |
-| ambiguous-tokens | 0.9171   | 0.9135    | 0.9108 | 41278   |
+| all              | 0.9702   | 0.9679    | 0.9685 | 169822  |
+| known-tokens     | 0.9718   | 0.9695    | 0.9696 | 161674  |
+| unknown-tokens   | 0.9385   | 0.9108    | 0.9217 | 8148    |
+| ambiguous-tokens | 0.8998   | 0.8952    | 0.8946 | 38122   |
+
+
+- *[More details](details/Numb.md)*
+- *[Back to TOC](#table-of-content)*
 
 ### Case
 
 |                  | accuracy | precision | recall | support |
 |------------------|----------|-----------|--------|---------|
-| all              | 0.9275   | 0.8887    | 0.8318 | 169822  |
-| unknown-tokens   | 0.8799   | 0.6519    | 0.6268 | 6535    |
-| ambiguous-tokens | 0.8381   | 0.8317    | 0.7812 | 64764   |
+| all              | 0.9234   | 0.8882    | 0.8244 | 169822  |
+| known-tokens     | 0.9259   | 0.8933    | 0.8314 | 161674  |
+| unknown-tokens   | 0.8737   | 0.6745    | 0.692  | 8148    |
+| ambiguous-tokens | 0.8319   | 0.8278    | 0.7788 | 63352   |
+
+
+- *[More details](details/Case.md)*
+- *[Back to TOC](#table-of-content)*
 
 ### Deg
 
 |                  | accuracy | precision | recall | support |
 |------------------|----------|-----------|--------|---------|
-| all              | 0.9815   | 0.9728    | 0.9728 | 169822  |
-| unknown-tokens   | 0.9388   | 0.9386    | 0.9176 | 6535    |
-| ambiguous-tokens | 0.916    | 0.913     | 0.9259 | 28464   |
+| all              | 0.9807   | 0.9681    | 0.9721 | 169822  |
+| known-tokens     | 0.9828   | 0.9701    | 0.9762 | 161674  |
+| unknown-tokens   | 0.9396   | 0.928     | 0.9121 | 8148    |
+| ambiguous-tokens | 0.9155   | 0.9051    | 0.9277 | 27870   |
+
+
+- *[More details](details/Deg.md)*
+- *[Back to TOC](#table-of-content)*
 
 ### Mood_Tense_Voice
 
 |                  | accuracy | precision | recall | support |
 |------------------|----------|-----------|--------|---------|
-| all              | 0.9873   | 0.8608    | 0.8141 | 169822  |
-| unknown-tokens   | 0.9301   | 0.762     | 0.744  | 6535    |
-| ambiguous-tokens | 0.9366   | 0.7802    | 0.7675 | 19961   |
+| all              | 0.9835   | 0.8304    | 0.738  | 169822  |
+| known-tokens     | 0.9873   | 0.8475    | 0.7589 | 161674  |
+| unknown-tokens   | 0.908    | 0.7013    | 0.6715 | 8148    |
+| ambiguous-tokens | 0.9258   | 0.7358    | 0.7026 | 16963   |
+
+
+- *[More details](details/Mood_Tense_Voice.md)*
+- *[Back to TOC](#table-of-content)*
 
 ### Person
 
 |                  | accuracy | precision | recall | support |
 |------------------|----------|-----------|--------|---------|
-| all              | 0.9974   | 0.9867    | 0.9821 | 169822  |
-| unknown-tokens   | 0.9827   | 0.9697    | 0.9585 | 6535    |
-| ambiguous-tokens | 0.9812   | 0.9356    | 0.9262 | 12679   |
+| all              | 0.9971   | 0.9901    | 0.9748 | 169822  |
+| known-tokens     | 0.9979   | 0.9918    | 0.9802 | 161674  |
+| unknown-tokens   | 0.9815   | 0.9761    | 0.9447 | 8148    |
+| ambiguous-tokens | 0.9776   | 0.9517    | 0.9038 | 10040   |
+
+
+- *[More details](details/Person.md)*
+- *[Back to TOC](#table-of-content)*
+
+### Entity
+
+|                  | accuracy | precision | recall | support |
+|------------------|----------|-----------|--------|---------|
+| all              | 0.995    | 0.9504    | 0.7087 | 169822  |
+| known-tokens     | 0.9967   | 0.966     | 0.7296 | 161674  |
+| unknown-tokens   | 0.9596   | 0.6141    | 0.6009 | 8148    |
+| ambiguous-tokens | 0.8891   | 0.9142    | 0.6881 | 2578    |
+
+
+- *[More details](details/Entity.md)*
+- *[Back to TOC](#table-of-content)*
+
+### Dis
+
+|                  | accuracy | precision | recall | support |
+|------------------|----------|-----------|--------|---------|
+| all              | 0.9725   | 0.8685    | 0.9254 | 169822  |
+| known-tokens     | 0.9739   | 0.8699    | 0.9285 | 161674  |
+| unknown-tokens   | 0.9451   | 0.6468    | 0.5544 | 8148    |
+| ambiguous-tokens | 0.9131   | 0.85      | 0.9119 | 41821   |
+
+
+- *[More details](details/Dis.md)*
+- *[Back to TOC](#table-of-content)*
+
+
 
 ### Credits
 
@@ -101,5 +183,3 @@ The web application and its maintenance is done by Thibault Clérice ( @ponteine
 [![LASLA Logo](statics/LogoLASLA2019.png)](http://web.philo.ulg.ac.be/lasla/textes-latins-traites/)
 
 The model is based on the LASLA data.
-
-For more details about the errors, see the [information](information) folder.
