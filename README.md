@@ -4,6 +4,10 @@
 
 Repository for LASLA Latin models: the models were fine-tuned by Thibault Clérice, data are based on LASLA data but some adaptation might be found. 
 
+## Download models
+
+[Check latest release, under assets](https://github.com/PonteIneptique/latin-lasla-models/releases/latest)
+
 ## Information about the model
 
 *Note:* the model is currently being fine-tuned in the context of my PhD. I'll fill this part when it will be done.
@@ -16,6 +20,11 @@ The training set is roughly **1.5M tokens**, dev test roughly 10k and test 16982
 - Only numbers 1, 2 and 3 are known. Roman numbers are unknown.
 - All punctuation signs are unknown, including the one used in abbr. `token[C]` == `lemma[Gaius]`
 - Lemma and tokens now accept lower and uppercasing. Noise was introduced in the dataset for better results.
+
+### Model LASLA+ (model-plus.tar)
+
+The model LASLA+ is trained on additionnal data, creating some noise in the original dataset and resulting in apparently worse results on classical data (approxim. -0.3%). It's results are 
+detailed in [LASLA-plus.md](LASLA-plus.md).
 
 ## Scores
 
