@@ -170,6 +170,7 @@ More details:
 - [Person](reports/lasla-plus.md#Person)
 - [Dis](reports/lasla-plus.md#Dis)
 
+| task | score | All | | | Known tokens | | | Unknown tokens | | | Ambiguous tokens | | |
 |  task  |  score  |  Acc  |  Pre  |  Rec  |  Acc  |  Pre  |  Rec  |  Acc  |  Pre  |  Rec  |  Acc  |  Pre  |  Rec  |
 | ------ | ------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | 
 |  Case  |  3.29167  |  94.64  |  90.38  |  88.82  |  94.86  |  91.05  |  89.56  |  90.18  |  74.51  |  70.96  |  88.53  |  87.46  |  86.19  |
